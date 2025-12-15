@@ -1,0 +1,136 @@
+51001        Accomack County
+51003        Albemarle County
+51005        Alleghany County
+51007        Amelia County
+51009        Amherst County
+51011        Appomattox County
+51013        Arlington County
+51015        Augusta County
+51017        Bath County
+51019        Bedford County
+51021        Bland County
+51023        Botetourt County
+51025        Brunswick County
+51027        Buchanan County
+51029        Buckingham County
+51031        Campbell County
+51033        Caroline County
+51035        Carroll County
+51036        Charles City County
+51037        Charlotte County
+51041        Chesterfield County
+51043        Clarke County
+51045        Craig County
+51047        Culpeper County
+51049        Cumberland County
+51051        Dickenson County
+51053        Dinwiddie County
+51057        Essex County
+51059        Fairfax County
+51061        Fauquier County
+51063        Floyd County
+51065        Fluvanna County
+51067        Franklin County
+51069        Frederick County
+51071        Giles County
+51073        Gloucester County
+51075        Goochland County
+51077        Grayson County
+51079        Greene County
+51081        Greensville County
+51083        Halifax County
+51085        Hanover County
+51087        Henrico County
+51089        Henry County
+51091        Highland County
+51093        Isle of Wight County
+51095        James City County
+51097        King and Queen County
+51099        King George County
+51101        King William County
+51103        Lancaster County
+51105        Lee County
+51107        Loudoun County
+51109        Louisa County
+51111        Lunenburg County
+51113        Madison County
+51115        Mathews County
+51117        Mecklenburg County
+51119        Middlesex County
+51121        Montgomery County
+51125        Nelson County
+51127        New Kent County
+51131        Northampton County
+51133        Northumberland County
+51135        Nottoway County
+51137        Orange County
+51139        Page County
+51141        Patrick County
+51143        Pittsylvania County
+51145        Powhatan County
+51147        Prince Edward County
+51149        Prince George County
+51153        Prince William County
+51155        Pulaski County
+51157        Rappahannock County
+51159        Richmond County
+51161        Roanoke County
+51163        Rockbridge County
+51165        Rockingham County
+51167        Russell County
+51169        Scott County
+51171        Shenandoah County
+51173        Smyth County
+51175        Southampton County
+51177        Spotsylvania County
+51179        Stafford County
+51181        Surry County
+51183        Sussex County
+51185        Tazewell County
+51187        Warren County
+51191        Washington County
+51193        Westmoreland County
+51195        Wise County
+51197        Wythe County
+51199        York County
+51510        Alexandria city
+51515        Bedford city
+51520        Bristol city
+51530        Buena Vista city
+51540        Charlottesville city
+51550        Chesapeake city
+51560        Clifton Forge city
+51570        Colonial Heights city
+51580        Covington city
+51590        Danville city
+51595        Emporia city
+51600        Fairfax city
+51610        Falls Church city
+51620        Franklin city
+51630        Fredericksburg city
+51640        Galax city
+51650        Hampton city
+51660        Harrisonburg city
+51670        Hopewell city
+51678        Lexington city
+51680        Lynchburg city
+51683        Manassas city
+51685        Manassas Park city
+51690        Martinsville city
+51700        Newport News city
+51710        Norfolk city
+51720        Norton city
+51730        Petersburg city
+51735        Poquoson city
+51740        Portsmouth city
+51750        Radford city
+51760        Richmond city
+51770        Roanoke city
+51775        Salem city
+51780        South Boston city
+51790        Staunton city
+51800        Suffolk city
+51810        Virginia Beach city
+51820        Waynesboro city
+51830        Williamsburg city
+51840        Winchester city

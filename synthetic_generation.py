@@ -6,7 +6,8 @@ import scipy.io as sio
 from scipy.sparse import csc_matrix
 
 
-def generate_data(dim_u, dim_x, num_samples, scaling_factor, prob, lamd, beta):
+def generate_data(dim_u, continuous_x, categorical_x, num_categories,
+                  num_samples, scaling_factor, prob, lamd, beta):
 
     for exp_id in range(10):
         # Size of the identity matrix
@@ -26,17 +27,32 @@ def generate_data(dim_u, dim_x, num_samples, scaling_factor, prob, lamd, beta):
         # Generate samples from the multivariate normal distribution
         unobserved_conf = np.random.multivariate_normal(mean_u, covariance_matrix, size=num_samples)
         unobserved_conf = torch.from_numpy(unobserved_conf).float()
-        feature_transform = torch.nn.Linear(dim_u, dim_x)
-        Transformed_X = feature_transform(unobserved_conf)
+
+        X_continuous = np.random.normal(size=(num_samples, continuous_x))
+
+        # Simulate categorical features
+        X_categorical = np.random.randint(num_categories, size=(num_samples, categorical_x))
+
+        # Combine continuous and categorical features into a single matrix
+        X = np.hstack((X_continuous, X_categorical))
+
+        # Convert categorical features to one-hot encoding
+        X_categorical_one_hot = np.zeros((num_samples, categorical_x * num_categories))
+        for i in range(categorical_x):
+            X_categorical_one_hot[np.arange(num_samples), X_categorical[:, i] + i * num_categories] = 1
+
+        # Combine continuous features with one-hot encoded categorical features
+        Transformed_X = np.hstack((X_continuous, X_categorical_one_hot))
+
 
         mean = 0  # Mean (mu)
         std_dev = 1  # Standard deviation (sigma)
-        size_x = dim_x  # Length of the noise vector
+        size_x = Transformed_X.shape[1]  # Length of the noise vector
         # Generate the noise vector
         noise_vector = np.random.normal(mean, std_dev, size=(num_samples, size_x))
         noise_vector = torch.from_numpy(noise_vector).float()
 
-        Transformed_X = Transformed_X + noise_vector
+        Transformed_X = torch.tensor(Transformed_X) + noise_vector
 
         # Generate graphs using Erdös-Rényi model
 
@@ -125,11 +141,17 @@ def generate_data(dim_u, dim_x, num_samples, scaling_factor, prob, lamd, beta):
 
 if __name__ == '__main__':
     dim_u = 100
-    dim_x = 100
+
+    continuous_x = 80
+    categorical_x = 20
+    num_categories = 4
+
     nodes = 1000
+
     scaling_factor = 20
     prob = 0.2
     lamd = 0.5
     BETA = 0
 
-    T, X, Y, G, Y_1, Y_0 = generate_data(dim_u, dim_x, nodes, scaling_factor, prob, lamd, BETA)
+    T, X, Y, G, Y_1, Y_0 = generate_data(dim_u, continuous_x, categorical_x, num_categories
+                                         , nodes, scaling_factor, prob, lamd, BETA)

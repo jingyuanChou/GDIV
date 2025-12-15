@@ -1,0 +1,510 @@
+FIPS,Location name,State name,NPI measure,Start Date,End Date
+51001,Accomack,Virginia,business_close,2020/3/23,2020/5/14
+51001,Accomack,Virginia,school_close,2020/3/13,2020/9/8
+51001,Accomack,Virginia,college_close,2020/3/13,2020/8/24
+51001,Accomack,Virginia,mask_mandate,2020/5/29,2021/5/28
+51001,Accomack,Virginia,mask_mandate,2020/9/8,2022/2/22
+51003,Albemarle,Virginia,school_close,2020/3/13,2020/10/8
+51003,Albemarle,Virginia,school_close,2020/12/8,2021/1/11
+51003,Albemarle,Virginia,school_close,2021/1/13,2021/2/1
+51003,Albemarle,Virginia,college_close,2020/3/11,2020/9/8
+51003,Albemarle,Virginia,mask_mandate,2020/7/25,2021/5/19
+51003,Albemarle,Virginia,mask_mandate,2021/8/9,2022/3/28
+51003,Albemarle,Virginia,mask_mandate,2021/7/8,2022/3/1
+51003,Albemarle,Virginia,mask_mandate,2020/5/29,2021/5/28
+51005,Alleghany,Virginia,business_close,2020/3/23,2020/5/14
+51005,Alleghany,Virginia,school_close,2020/3/13,2020/9/8
+51005,Alleghany,Virginia,school_close,2020/11/13,2020/11/30
+51005,Alleghany,Virginia,school_close,2020/12/11,2021/1/11
+51005,Alleghany,Virginia,mask_mandate,2020/8/12,2022/2/14
+51005,Alleghany,Virginia,mask_mandate,2020/5/29,2021/5/28
+51007,Amelia,Virginia,school_close,2020/3/12,2020/8/17
+51007,Amelia,Virginia,mask_mandate,2021/8/9,2022/1/23
+51007,Amelia,Virginia,mask_mandate,2020/5/29,2021/5/28
+51009,Amherst,Virginia,school_close,2020/3/13,2020/9/9
+51009,Amherst,Virginia,school_close,2021/9/2,2021/9/13
+51009,Amherst,Virginia,mask_mandate,2020/7/30,2022/2/22
+51009,Amherst,Virginia,mask_mandate,2020/5/29,2021/5/28
+51009,Amherst,Virginia,mask_mandate,2021/8/18,2022/2/22
+51011,Appomattox,Virginia,school_close,2021/1/5,2020/9/14
+51011,Appomattox,Virginia,mask_mandate,2021/10/10,2022/1/24
+51011,Appomattox,Virginia,mask_mandate,2020/5/29,2021/5/28
+51013,Arlington,Virginia,school_close,2020/3/13,2021/3/2
+51013,Arlington,Virginia,college_close,2020/3/11,2020/8/24
+51013,Arlington,Virginia,religion_close,2020/3/16,2020/5/31
+51013,Arlington,Virginia,mask_mandate,2020/5/29,2021/5/28
+51013,Arlington,Virginia,mask_mandate,2021/7/30,2022/3/1
+51015,Augusta,Virginia,business_close,2020/3/20,2020/6/1
+51015,Augusta,Virginia,business_close,2020/3/16,2020/6/19
+51015,Augusta,Virginia,business_close,2020/12/11,2021/4/26
+51015,Augusta,Virginia,business_close,2020/3/23,2021/6/5
+51015,Augusta,Virginia,school_close,2020/3/13,2020/8/23
+51015,Augusta,Virginia,mask_mandate,2020/5/29,2021/5/28
+51015,Augusta,Virginia,mask_mandate,2021/8/6,2022/2/14
+51017,Bath,Virginia,business_close,2020/3/24,2020/6/1
+51017,Bath,Virginia,school_close,2020/3/16,2020/8/26
+51017,Bath,Virginia,school_close,2021/9/8,2021/9/17
+51017,Bath,Virginia,religion_close,2020/3/14,2020/6/1
+51017,Bath,Virginia,mask_mandate,2020/5/29,2021/5/28
+51019,Bedford,Virginia,business_close,2020/3/23,2020/5/14
+51019,Bedford,Virginia,school_close,2020/3/13,2020/9/8
+51019,Bedford,Virginia,mask_mandate,2020/5/29,2021/5/28
+51019,Bedford,Virginia,mask_mandate,2020/8/8,2022/2/1
+51021,Bland,Virginia,school_close,2020/3/13,2020/11/2
+51021,Bland,Virginia,mask_mandate,2020/5/29,2021/5/28
+51023,Botetourt,Virginia,business_close,2020/3/16,2020/6/15
+51023,Botetourt,Virginia,school_close,2020/3/13,2020/8/24
+51023,Botetourt,Virginia,religion_close,2020/3/15,2020/7/5
+51023,Botetourt,Virginia,mask_mandate,2020/6/11,2021/6/30
+51023,Botetourt,Virginia,mask_mandate,2020/5/29,2021/5/28
+51023,Botetourt,Virginia,mask_mandate,2021/8/6,2022/2/9
+51025,Brunswick,Virginia,school_close,2020/3/13,2021/3/15
+51025,Brunswick,Virginia,religion_close,2020/3/22,2020/5/15
+51025,Brunswick,Virginia,mask_mandate,2020/5/29,2021/5/28
+51027,Buchanan,Virginia,business_close,2020/3/23,2020/5/14
+51027,Buchanan,Virginia,school_close,2020/3/16,2020/9/8
+51027,Buchanan,Virginia,mask_mandate,2020/5/29,2021/5/28
+51029,Buckingham,Virginia,school_close,2020/3/16,2021/8/9
+51029,Buckingham,Virginia,mask_mandate,2021/8/3,2022/2/22
+51029,Buckingham,Virginia,mask_mandate,2020/5/29,2021/5/28
+51031,Campbell,Virginia,business_close,2020/3/13,2020/6/15
+51031,Campbell,Virginia,business_close,2020/11/19,2020/12/14
+51031,Campbell,Virginia,school_close,2020/3/23,2020/9/8
+51031,Campbell,Virginia,mask_mandate,2020/5/29,2020/12/1
+51031,Campbell,Virginia,mask_mandate,2021/8/11,2022/1/24
+51033,Caroline,Virginia,business_close,2020/3/16,2020/6/1
+51033,Caroline,Virginia,school_close,2020/3/13,2021/3/1
+51033,Caroline,Virginia,mask_mandate,2020/5/29,2021/5/28
+51035,Carroll,Virginia,business_close,2020/3/23,2020/5/14
+51035,Carroll,Virginia,school_close,2020/3/13,2020/9/9
+51035,Carroll,Virginia,school_close,2020/12/4,2021/1/18
+51035,Carroll,Virginia,mask_mandate,2020/5/29,2021/5/28
+51035,Carroll,Virginia,mask_mandate,2021/8/6,2022/1/24
+51036,Charles City,Virginia,school_close,2020/3/13,2021/9/7
+51036,Charles City,Virginia,mask_mandate,2021/8/23,2022/3/1
+51036,Charles City,Virginia,mask_mandate,2020/5/29,2021/5/28
+51037,Charlotte,Virginia,school_close,2020/3/13,2020/10/5
+51037,Charlotte,Virginia,religion_close,2020/3/19,2020/5/14
+51037,Charlotte,Virginia,mask_mandate,2020/5/29,2021/5/28
+51037,Charlotte,Virginia,mask_mandate,2021/8/6,2022/1/24
+51041,Chesterfield,Virginia,business_close,2020/3/23,2020/5/14
+51041,Chesterfield,Virginia,school_close,2020/3/23,2020/9/29
+51041,Chesterfield,Virginia,mask_mandate,2020/5/29,2021/5/28
+51041,Chesterfield,Virginia,mask_mandate,2021/8/24,2022/1/27
+51043,Clarke,Virginia,school_close,2020/3/16,2021/8/31
+51043,Clarke,Virginia,mask_mandate,2021/8/31,2022/1/25
+51043,Clarke,Virginia,mask_mandate,2020/5/29,2021/5/28
+51045,Craig,Virginia,school_close,2020/3/13,2020/8/31
+51045,Craig,Virginia,religion_close,2020/3/18,2020/6/7
+51045,Craig,Virginia,mask_mandate,2020/8/11,2022/1/19
+51045,Craig,Virginia,mask_mandate,2020/5/29,2021/5/28
+51047,Culpeper,Virginia,business_close,2020/3/23,2020/5/14
+51047,Culpeper,Virginia,school_close,2020/3/12,2020/8/24
+51047,Culpeper,Virginia,religion_close,2020/3/12,2020/5/16
+51047,Culpeper,Virginia,mask_mandate,2020/5/29,2021/5/28
+51049,Cumberland,Virginia,school_close,2020/3/16,2021/8/24
+51049,Cumberland,Virginia,mask_mandate,2020/5/29,2021/5/28
+51051,Dickenson,Virginia,school_close,2020/3/13,2020/8/24
+51051,Dickenson,Virginia,religion_close,2020/3/21,2020/6/7
+51051,Dickenson,Virginia,religion_close,2020/8/6,2020/10/4
+51051,Dickenson,Virginia,religion_close,2020/11/28,2021/1/17
+51051,Dickenson,Virginia,mask_mandate,2020/7/22,2022/2/17
+51051,Dickenson,Virginia,mask_mandate,2020/5/29,2021/5/28
+51057,Essex,Virginia,school_close,2020/3/13,2020/10/26
+51057,Essex,Virginia,school_close,2020/12/16,2021/2/16
+51057,Essex,Virginia,mask_mandate,2020/12/14,2021/5/14
+51057,Essex,Virginia,mask_mandate,2021/8/12,2022/2/1
+51057,Essex,Virginia,mask_mandate,2020/5/29,2021/5/28
+51059,Fairfax,Virginia,school_close,2020/3/12,2021/2/16
+51059,Fairfax,Virginia,college_close,2020/3/11,2020/8/24
+51059,Fairfax,Virginia,religion_close,2020/3/15,2020/10/25
+51059,Fairfax,Virginia,mask_mandate,2020/5/29,2021/5/28
+51059,Fairfax,Virginia,mask_mandate,2021/7/28,2022/3/1
+51061,Fauquier,Virginia,business_close,2020/3/23,2020/5/14
+51061,Fauquier,Virginia,school_close,2020/3/13,2020/11/9
+51061,Fauquier,Virginia,school_close,2020/12/11,2021/1/19
+51061,Fauquier,Virginia,mask_mandate,2021/8/12,2022/1/24
+51061,Fauquier,Virginia,mask_mandate,2020/5/29,2021/5/28
+51063,Floyd,Virginia,school_close,2020/3/16,2020/8/11
+51063,Floyd,Virginia,religion_close,2020/3/15,2020/7/5
+51063,Floyd,Virginia,mask_mandate,2021/8/9,2022/1/24
+51063,Floyd,Virginia,mask_mandate,2020/5/29,2021/5/28
+51065,Fluvanna,Virginia,school_close,2020/3/13,2021/8/11
+51065,Fluvanna,Virginia,mask_mandate,2020/5/29,2021/5/28
+51065,Fluvanna,Virginia,mask_mandate,2021/8/9,2022/1/27
+51067,Franklin,Virginia,business_close,2020/3/24,2020/5/14
+51067,Franklin,Virginia,school_close,2020/3/13,2020/9/8
+51067,Franklin,Virginia,school_close,2021/9/3,2021/9/7
+51067,Franklin,Virginia,college_close,2020/3/13,2020/8/25
+51067,Franklin,Virginia,religion_close,2020/3/14,2020/5/17
+51067,Franklin,Virginia,mask_mandate,2020/8/9,2022/2/15
+51069,Frederick,Virginia,business_close,2020/3/23,2020/5/14
+51069,Frederick,Virginia,school_close,2020/3/13,2020/9/8
+51069,Frederick,Virginia,mask_mandate,2020/5/29,2021/5/28
+51069,Frederick,Virginia,mask_mandate,2021/8/12,2022/3/1
+51071,Giles,Virginia,school_close,2020/3/13,2020/8/24
+51071,Giles,Virginia,school_close,2021/9/8,2021/9/13
+51071,Giles,Virginia,religion_close,2020/3/14,2020/5/28
+51071,Giles,Virginia,mask_mandate,2021/8/18,2022/1/24
+51073,Gloucester,Virginia,school_close,2020/3/13,2020/9/29
+51073,Gloucester,Virginia,college_close,2020/3/13,2021/7/6
+51073,Gloucester,Virginia,religion_close,2020/3/22,2020/6/7
+51073,Gloucester,Virginia,mask_mandate,2021/8/12,2022/1/24
+51075,Goochland,Virginia,business_close,2020/3/23,2020/5/14
+51075,Goochland,Virginia,school_close,2020/3/16,2020/10/14
+51075,Goochland,Virginia,mask_mandate,2020/5/29,2021/5/28
+51075,Goochland,Virginia,mask_mandate,2021/8/23,2022/1/24
+51077,Grayson,Virginia,mask_mandate,2021/8/9,2022/1/24
+51077,Grayson,Virginia,mask_mandate,2020/5/29,2021/5/28
+51079,Greene,Virginia,school_close,2020/3/13,2020/9/8
+51079,Greene,Virginia,religion_close,2020/3/13,2020/9/20
+51079,Greene,Virginia,mask_mandate,2020/5/29,2021/5/28
+51079,Greene,Virginia,mask_mandate,2021/8/11,2022/1/21
+51081,Greensville,Virginia,school_close,2020/3/13,2021/3/9
+51081,Greensville,Virginia,mask_mandate,2021/8/12,2022/2/28
+51085,Hanover,Virginia,school_close,2020/3/12,2020/9/8
+51085,Hanover,Virginia,college_close,2020/3/12,2020/8/15
+51085,Hanover,Virginia,mask_mandate,2021/8/12,2022/1/31
+51085,Hanover,Virginia,mask_mandate,2020/5/29,2021/5/28
+51087,Henrico,Virginia,business_close,2020/3/16,2020/5/14
+51087,Henrico,Virginia,school_close,2020/3/24,2021/2/22
+51087,Henrico,Virginia,mask_mandate,2020/5/29,2021/5/28
+51087,Henrico,Virginia,mask_mandate,2021/8/12,2022/2/25
+51087,Henrico,Virginia,mask_mandate,2021/8/12,2022/2/28
+51089,Henry,Virginia,school_close,2020/3/16,2021/3/10
+51089,Henry,Virginia,mask_mandate,2020/5/29,2021/5/28
+51091,Highland,Virginia,business_close,2020/3/23,2020/5/14
+51091,Highland,Virginia,school_close,2020/3/13,2021/9/20
+51091,Highland,Virginia,mask_mandate,2020/5/29,2021/5/28
+51091,Highland,Virginia,mask_mandate,2021/9/13,2022/1/24
+51093,Isle of Wight,Virginia,school_close,2020/3/13,2020/9/8
+51093,Isle of Wight,Virginia,school_close,2021/1/4,2021/1/15
+51093,Isle of Wight,Virginia,college_close,2020/3/18,2020/8/24
+51093,Isle of Wight,Virginia,religion_close,2020/3/13,2020/6/21
+51093,Isle of Wight,Virginia,religion_close,2021/1/21,2021/2/6
+51093,Isle of Wight,Virginia,mask_mandate,2020/5/29,2021/5/28
+51093,Isle of Wight,Virginia,mask_mandate,2020/11/13,2022/2/22
+51095,James City,Virginia,business_close,2020/3/24,2020/5/14
+51095,James City,Virginia,school_close,2020/3/16,2021/2/16
+51095,James City,Virginia,school_close,2020/12/15,2021/1/25
+51095,James City,Virginia,mask_mandate,2021/8/4,2022/3/1
+51095,James City,Virginia,mask_mandate,2020/5/29,2021/5/28
+51097,King and Queen,Virginia,school_close,2020/3/13,2020/9/8
+51097,King and Queen,Virginia,school_close,2020/9/8,2021/8/24
+51097,King and Queen,Virginia,religion_close,2020/3/17,2020/8/21
+51097,King and Queen,Virginia,mask_mandate,2021/7/30,2022/2/16
+51099,King George,Virginia,mask_mandate,2020/5/29,2021/5/28
+51101,King William,Virginia,business_close,2020/3/24,2020/5/14
+51101,King William,Virginia,school_close,2020/3/16,2020/9/8
+51101,King William,Virginia,mask_mandate,2020/5/29,2021/5/28
+51101,King William,Virginia,mask_mandate,2021/9/20,2022/1/24
+51103,Lancaster,Virginia,school_close,2020/3/16,2021/2/16
+51103,Lancaster,Virginia,religion_close,2020/3/16,2020/6/7
+51103,Lancaster,Virginia,mask_mandate,2020/5/29,2021/5/28
+51105,Lee,Virginia,business_close,2020/3/23,2020/5/14
+51105,Lee,Virginia,school_close,2020/3/16,2021/8/10
+51105,Lee,Virginia,mask_mandate,2020/5/29,2021/5/28
+51105,Lee,Virginia,mask_mandate,2021/8/9,2022/2/12
+51107,Loudoun,Virginia,business_close,2020/3/23,2020/5/14
+51107,Loudoun,Virginia,school_close,2020/3/12,2020/9/8
+51107,Loudoun,Virginia,religion_close,2020/3/14,2020/5/29
+51107,Loudoun,Virginia,lockdown,2020/3/30,2020/6/10
+51107,Loudoun,Virginia,mask_mandate,2020/5/29,2021/5/28
+51107,Loudoun,Virginia,mask_mandate,2021/8/9,2022/2/22
+51109,Louisa,Virginia,school_close,2020/3/17,2021/8/11
+51109,Louisa,Virginia,mask_mandate,2020/5/29,2021/5/28
+51111,Lunenburg,Virginia,school_close,2020/3/13,2021/3/1
+51111,Lunenburg,Virginia,religion_close,2020/3/22,2020/5/24
+51111,Lunenburg,Virginia,mask_mandate,2020/5/29,2021/5/28
+51113,Madison,Virginia,mask_mandate,2020/5/29,2021/5/28
+51115,Mathews,Virginia,business_close,2020/3/18,2020/5/14
+51115,Mathews,Virginia,school_close,2020/3/13,2020/8/31
+51115,Mathews,Virginia,mask_mandate,2020/5/29,2021/5/28
+51117,Mecklenburg,Virginia,mask_mandate,2020/5/29,2021/5/28
+51119,Middlesex,Virginia,business_close,2020/3/23,2020/5/14
+51119,Middlesex,Virginia,school_close,2020/3/16,2020/11/5
+51119,Middlesex,Virginia,mask_mandate,2020/5/29,2021/5/28
+51121,Montgomery,Virginia,school_close,2020/3/16,2022/1/2
+51121,Montgomery,Virginia,college_close,2020/3/23,2021/8/24
+51121,Montgomery,Virginia,mask_mandate,2020/5/29,2021/5/28
+51121,Montgomery,Virginia,mask_mandate,2021/11/20,2022/3/1
+51125,Nelson,Virginia,school_close,2020/3/16,2021/3/1
+51125,Nelson,Virginia,religion_close,2020/3/16,2020/5/24
+51125,Nelson,Virginia,mask_mandate,2020/5/29,2021/5/28
+51127,New Kent,Virginia,business_close,2020/3/24,2020/5/14
+51127,New Kent,Virginia,mask_mandate,2021/8/23,2022/1/24
+51131,Northampton,Virginia,school_close,2020/3/16,2022/1/3
+51131,Northampton,Virginia,mask_mandate,2020/5/29,2022/2/23
+51133,Northumberland,Virginia,school_close,2020/3/16,2020/8/24
+51133,Northumberland,Virginia,religion_close,2020/3/15,2020/6/17
+51133,Northumberland,Virginia,mask_mandate,2020/5/29,2021/5/28
+51133,Northumberland,Virginia,mask_mandate,2021/8/10,2022/2/3
+51135,Nottoway,Virginia,mask_mandate,2020/5/29,2021/5/28
+51137,Orange,Virginia,business_close,2020/3/24,2020/6/12
+51137,Orange,Virginia,school_close,2020/3/16,2020/8/24
+51137,Orange,Virginia,mask_mandate,2020/5/29,2021/5/28
+51137,Orange,Virginia,mask_mandate,2021/8/11,2022/3/7
+51139,Page,Virginia,school_close,2020/3/13,2020/9/10
+51139,Page,Virginia,college_close,2020/3/12,2020/8/24
+51139,Page,Virginia,religion_close,2020/3/15,2020/7/4
+51139,Page,Virginia,mask_mandate,2020/5/29,2021/5/28
+51141,Patrick,Virginia,business_close,2020/3/24,2020/5/14
+51141,Patrick,Virginia,school_close,2020/3/13,2020/9/14
+51141,Patrick,Virginia,school_close,2020/3/13,2021/8/10
+51141,Patrick,Virginia,mask_mandate,2020/5/29,2021/5/28
+51143,Pittsylvania,Virginia,business_close,2020/3/24,2020/5/14
+51143,Pittsylvania,Virginia,school_close,2020/3/16,2020/8/20
+51143,Pittsylvania,Virginia,mask_mandate,2020/5/29,2021/5/28
+51143,Pittsylvania,Virginia,mask_mandate,2021/8/12,2022/2/28
+51149,Prince George,Virginia,business_close,2020/3/23,2020/5/14
+51149,Prince George,Virginia,school_close,2020/3/16,2020/9/8
+51149,Prince George,Virginia,religion_close,2020/3/14,2021/8/1
+51149,Prince George,Virginia,mask_mandate,2020/5/29,2021/5/28
+51149,Prince George,Virginia,mask_mandate,2021/10/1,2022/2/28
+51155,Pulaski,Virginia,school_close,2020/3/9,2020/9/8
+51155,Pulaski,Virginia,college_close,2020/3/12,2020/3/23
+51155,Pulaski,Virginia,college_close,2020/3/30,2020/9/8
+51155,Pulaski,Virginia,religion_close,2020/3/15,2020/6/21
+51155,Pulaski,Virginia,mask_mandate,2020/5/29,2021/5/28
+51159,Richmond,Virginia,business_close,2020/3/24,2020/5/14
+51159,Richmond,Virginia,school_close,2020/3/16,2020/9/8
+51159,Richmond,Virginia,school_close,2020/12/17,2021/1/19
+51159,Richmond,Virginia,college_close,2020/3/16,2020/8/17
+51159,Richmond,Virginia,religion_close,2020/3/22,2020/5/23
+51159,Richmond,Virginia,religion_close,2020/3/23,2020/10/15
+51159,Richmond,Virginia,mask_mandate,2020/5/29,2021/5/28
+51161,Roanoke,Virginia,school_close,2020/3/16,2020/8/24
+51161,Roanoke,Virginia,religion_close,2020/3/15,2020/6/21
+51161,Roanoke,Virginia,mask_mandate,2020/5/29,2021/5/28
+51161,Roanoke,Virginia,mask_mandate,2020/8/6,2022/1/6
+51163,Rockbridge,Virginia,business_close,2020/3/19,2020/6/11
+51163,Rockbridge,Virginia,school_close,2020/3/16,2021/8/17
+51163,Rockbridge,Virginia,college_close,2020/3/14,2021/9/7
+51165,Rockingham,Virginia,business_close,2020/3/23,2020/5/15
+51165,Rockingham,Virginia,business_close,2020/3/20,2020/6/1
+51165,Rockingham,Virginia,school_close,2020/3/13,2020/9/10
+51165,Rockingham,Virginia,school_close,2020/10/9,2020/10/22
+51165,Rockingham,Virginia,religion_close,2020/3/13,2020/5/17
+51165,Rockingham,Virginia,mask_mandate,2020/5/29,2021/5/28
+51165,Rockingham,Virginia,mask_mandate,2021/8/23,2022/2/16
+51171,Shenandoah,Virginia,business_close,2020/3/24,2020/5/15
+51171,Shenandoah,Virginia,school_close,2020/3/16,2020/8/17
+51171,Shenandoah,Virginia,lockdown,2020/3/30,2020/6/9
+51171,Shenandoah,Virginia,mask_mandate,2020/5/29,2021/5/1
+51173,Smyth,Virginia,business_close,2020/3/24,2020/5/14
+51173,Smyth,Virginia,school_close,2020/3/23,2020/8/20
+51173,Smyth,Virginia,college_close,2020/3/23,2020/8/14
+51173,Smyth,Virginia,religion_close,2020/3/18,2020/9/20
+51173,Smyth,Virginia,mask_mandate,2020/5/29,2021/5/28
+51177,Spotsylvania,Virginia,school_close,2020/3/16,2021/2/22
+51177,Spotsylvania,Virginia,college_close,2020/3/11,2020/9/14
+51177,Spotsylvania,Virginia,religion_close,2020/3/13,2020/6/7
+51177,Spotsylvania,Virginia,mask_mandate,2020/5/29,2021/5/28
+51179,Stafford,Virginia,business_close,2020/12/21,2021/2/26
+51179,Stafford,Virginia,business_close,2020/3/18,2020/5/15
+51179,Stafford,Virginia,school_close,2020/3/13,2021/8/9
+51179,Stafford,Virginia,college_close,2020/3/12,2021/8/9
+51179,Stafford,Virginia,mask_mandate,2020/4/6,2021/5/28
+51179,Stafford,Virginia,mask_mandate,2020/5/29,2021/5/28
+51183,Sussex,Virginia,school_close,2020/3/13,2021/4/26
+51183,Sussex,Virginia,religion_close,2020/3/15,2020/6/21
+51183,Sussex,Virginia,mask_mandate,2020/5/29,2021/5/28
+51191,Washington,Virginia,school_close,2020/3/16,2020/10/12
+51191,Washington,Virginia,school_close,2020/12/4,2021/1/25
+51191,Washington,Virginia,college_close,2020/3/12,2020/6/1
+51191,Washington,Virginia,religion_close,2020/3/17,2020/5/24
+51191,Washington,Virginia,mask_mandate,2020/5/29,2021/5/28
+51191,Washington,Virginia,mask_mandate,2021/8/5,2022/3/1
+51193,Westmoreland,Virginia,business_close,2020/3/20,2020/5/14
+51193,Westmoreland,Virginia,school_close,2020/3/16,2021/8/9
+51193,Westmoreland,Virginia,mask_mandate,2020/5/29,2021/5/14
+51195,Wise,Virginia,school_close,2020/3/13,2020/9/28
+51195,Wise,Virginia,college_close,2020/3/11,2020/8/26
+51195,Wise,Virginia,religion_close,2020/3/13,2020/7/12
+51195,Wise,Virginia,mask_mandate,2020/5/29,2021/5/28
+51197,Wythe,Virginia,business_close,2020/4/6,2020/4/17
+51197,Wythe,Virginia,school_close,2020/12/7,2021/1/25
+51197,Wythe,Virginia,college_close,2020/3/16,2020/6/7
+51197,Wythe,Virginia,mask_mandate,2020/6/1,2022/1/24
+51197,Wythe,Virginia,mask_mandate,2020/5/29,2021/5/28
+51199,York,Virginia,business_close,2020/3/30,2020/5/30
+51199,York,Virginia,school_close,2020/3/16,2020/10/19
+51199,York,Virginia,mask_mandate,2020/5/29,2021/5/28
+51510,Alexandria,Virginia,school_close,2020/3/16,2021/8/24
+51510,Alexandria,Virginia,religion_close,2020/3/16,2020/5/31
+51510,Alexandria,Virginia,mask_mandate,2021/8/3,2022/3/1
+51510,Alexandria,Virginia,mask_mandate,2021/7/30,2022/3/1
+51510,Alexandria,Virginia,mask_mandate,2020/5/29,2021/5/28
+51520,Bristol,Virginia,business_close,2020/3/24,2020/5/15
+51520,Bristol,Virginia,school_close,2020/3/13,2020/8/20
+51520,Bristol,Virginia,school_close,2020/12/14,2021/1/25
+51520,Bristol,Virginia,mask_mandate,2020/5/29,2021/5/28
+51530,Buena Vista,Virginia,school_close,2020/3/16,2020/8/31
+51530,Buena Vista,Virginia,college_close,2020/3/12,2020/8/24
+51530,Buena Vista,Virginia,religion_close,2020/3/17,2020/7/19
+51530,Buena Vista,Virginia,mask_mandate,2020/5/29,2021/5/28
+51530,Buena Vista,Virginia,mask_mandate,2021/8/16,2022/2/21
+51540,Charlottesville,Virginia,business_close,2020/3/24,2020/5/15
+51540,Charlottesville,Virginia,business_close,2020/6/26,2021/4/17
+51540,Charlottesville,Virginia,school_close,2020/3/16,2021/3/8
+51540,Charlottesville,Virginia,college_close,2020/3/11,2021/8/24
+51540,Charlottesville,Virginia,mask_mandate,2020/8/1,2020/9/29
+51540,Charlottesville,Virginia,business_close,2020/8/1,2020/9/29
+51540,Charlottesville,Virginia,mask_mandate,2020/5/29,2021/5/28
+51540,Charlottesville,Virginia,mask_mandate,2021/5/28,2022/3/28
+51550,Chesapeake,Virginia,school_close,2020/3/16,2020/9/21
+51550,Chesapeake,Virginia,school_close,2021/1/4,2021/1/19
+51550,Chesapeake,Virginia,college_close,2020/3/12,2020/8/24
+51550,Chesapeake,Virginia,college_close,2022/1/3,2022/1/18
+51550,Chesapeake,Virginia,religion_close,2020/3/17,2020/6/7
+51550,Chesapeake,Virginia,mask_mandate,2021/8/12,2022/1/24
+51550,Chesapeake,Virginia,mask_mandate,2020/5/29,2021/5/28
+51570,Colonial Heights,Virginia,school_close,2020/3/16,2020/9/8
+51570,Colonial Heights,Virginia,school_close,2020/11/12,2020/12/7
+51570,Colonial Heights,Virginia,religion_close,2020/3/18,2020/5/24
+51570,Colonial Heights,Virginia,mask_mandate,2020/5/29,2021/5/28
+51570,Colonial Heights,Virginia,mask_mandate,2021/8/11,2022/2/28
+51580,Covington,Virginia,business_close,2020/3/16,2020/11/27
+51580,Covington,Virginia,school_close,2020/3/23,2020/9/9
+51580,Covington,Virginia,school_close,2020/11/9,2020/11/13
+51580,Covington,Virginia,religion_close,2020/3/16,2020/11/1
+51580,Covington,Virginia,mask_mandate,2020/5/29,2021/5/28
+51590,Danville,Virginia,school_close,2020/3/16,2020/11/9
+51590,Danville,Virginia,school_close,2020/11/30,2020/12/4
+51590,Danville,Virginia,college_close,2020/3/13,2020/8/14
+51590,Danville,Virginia,religion_close,2020/3/17,2020/9/6
+51590,Danville,Virginia,religion_close,2020/11/3,2021/3/21
+51590,Danville,Virginia,mask_mandate,2020/5/29,2021/5/28
+51595,Emporia,Virginia,business_close,2020/3/24,2020/5/14
+51595,Emporia,Virginia,school_close,2020/3/13,2020/9/2
+51595,Emporia,Virginia,mask_mandate,2020/5/29,2021/5/28
+51595,Emporia,Virginia,mask_mandate,2021/8/12,2021/5/17
+51600,Fairfax City,Virginia,school_close,2020/3/12,2020/10/26
+51600,Fairfax City,Virginia,college_close,2020/3/11,2020/8/24
+51600,Fairfax City,Virginia,religion_close,2020/3/16,2020/5/30
+51600,Fairfax City,Virginia,mask_mandate,2021/7/28,2022/3/1
+51610,Falls Church,Virginia,school_close,2020/3/16,2020/8/24
+51610,Falls Church,Virginia,college_close,2020/3/17,2020/6/29
+51610,Falls Church,Virginia,religion_close,2020/3/17,2020/6/1
+51610,Falls Church,Virginia,mask_mandate,2020/7/8,2021/5/15
+51610,Falls Church,Virginia,mask_mandate,2021/8/1,2022/3/1
+51610,Falls Church,Virginia,mask_mandate,2021/8/11,2022/2/10
+51630,Fredericksburg,Virginia,business_close,2020/3/23,2020/5/15
+51630,Fredericksburg,Virginia,school_close,2020/3/25,2021/8/10
+51630,Fredericksburg,Virginia,college_close,2020/3/12,2021/8/23
+51630,Fredericksburg,Virginia,mask_mandate,2020/4/26,2022/3/1
+51640,Galax,Virginia,school_close,2020/3/16,2020/10/7
+51640,Galax,Virginia,college_close,2020/3/16,2020/6/11
+51640,Galax,Virginia,religion_close,2020/3/17,2020/8/9
+51640,Galax,Virginia,mask_mandate,2020/5/29,2021/5/28
+51640,Galax,Virginia,mask_mandate,2021/8/10,2022/1/24
+51650,Hampton,Virginia,business_close,2020/3/24,2020/5/14
+51650,Hampton,Virginia,school_close,2020/3/16,2021/3/15
+51650,Hampton,Virginia,college_close,2020/3/17,2021/5/24
+51650,Hampton,Virginia,religion_close,2020/3/23,2020/5/17
+51650,Hampton,Virginia,mask_mandate,2020/5/29,2021/5/28
+51660,Harrisonburg,Virginia,business_close,2020/3/26,2020/8/3
+51660,Harrisonburg,Virginia,school_close,2020/3/13,2020/8/30
+51660,Harrisonburg,Virginia,college_close,2020/3/16,2020/8/26
+51660,Harrisonburg,Virginia,religion_close,2020/3/18,2020/5/14
+51660,Harrisonburg,Virginia,religion_close,2021/1/6,2021/1/18
+51660,Harrisonburg,Virginia,mask_mandate,2020/5/29,2021/5/28
+51660,Harrisonburg,Virginia,mask_mandate,2021/8/20,2022/3/28
+51670,Hopewell,Virginia,school_close,2020/3/24,2021/7/26
+51670,Hopewell,Virginia,mask_mandate,2021/7/26,2022/2/16
+51670,Hopewell,Virginia,mask_mandate,2020/5/29,2021/5/28
+51678,Lexington,Virginia,mask_mandate,2020/5/29,2021/5/28
+51680,Lynchburg,Virginia,school_close,2020/3/16,2020/10/6
+51680,Lynchburg,Virginia,college_close,2020/3/23,2020/3/23
+51680,Lynchburg,Virginia,college_close,2020/3/30,2020/8/24
+51680,Lynchburg,Virginia,college_close,2021/1/18,2021/1/25
+51680,Lynchburg,Virginia,mask_mandate,2020/5/29,2021/5/28
+51680,Lynchburg,Virginia,mask_mandate,2021/8/11,2022/3/1
+51683,Manassas,Virginia,business_close,2020/3/24,2020/5/14
+51683,Manassas,Virginia,school_close,2020/3/16,2021/3/23
+51683,Manassas,Virginia,school_close,2020/3/16,2021/8/12
+51683,Manassas,Virginia,mask_mandate,2020/5/29,2021/5/28
+51683,Manassas,Virginia,mask_mandate,2021/8/12,2022/3/28
+51685,Manassas Park,Virginia,business_close,2020/3/23,2020/5/14
+51685,Manassas Park,Virginia,school_close,2020/3/13,2021/1/5
+51685,Manassas Park,Virginia,mask_mandate,2021/8/12,2022/3/1
+51685,Manassas Park,Virginia,mask_mandate,2020/5/29,2021/5/28
+51690,Martinsville,Virginia,school_close,2020/3/16,2021/3/8
+51690,Martinsville,Virginia,college_close,2020/3/12,2020/8/24
+51690,Martinsville,Virginia,religion_close,2020/3/13,2020/8/2
+51690,Martinsville,Virginia,mask_mandate,2020/5/29,2021/5/28
+51700,Newport News,Virginia,college_close,2020/3/16,2020/8/3
+51700,Newport News,Virginia,mask_mandate,2020/5/29,2021/5/28
+51710,Norfolk,Virginia,business_close,2020/3/24,2020/5/14
+51710,Norfolk,Virginia,school_close,2020/3/16,2021/4/12
+51710,Norfolk,Virginia,school_close,2020/3/16,2021/4/26
+51710,Norfolk,Virginia,college_close,2020/3/16,2021/8/30
+51710,Norfolk,Virginia,religion_close,2020/3/24,2021/5/30
+51710,Norfolk,Virginia,mask_mandate,2020/5/29,2021/5/28
+51720,Norton,Virginia,business_close,2020/4/7,2020/6/8
+51720,Norton,Virginia,school_close,2020/3/23,2020/8/5
+51720,Norton,Virginia,mask_mandate,2020/5/29,2021/5/28
+51730,Petersburg,Virginia,school_close,2020/3/13,2021/3/17
+51730,Petersburg,Virginia,college_close,2020/3/16,2020/8/23
+51730,Petersburg,Virginia,college_close,2020/3/23,2020/8/23
+51730,Petersburg,Virginia,mask_mandate,2020/5/29,2021/5/28
+51735,Poquoson,Virginia,school_close,2020/3/16,2020/9/8
+51735,Poquoson,Virginia,religion_close,2020/3/15,2020/6/11
+51735,Poquoson,Virginia,mask_mandate,2021/8/11,2022/1/24
+51735,Poquoson,Virginia,mask_mandate,2020/5/29,2021/5/28
+51740,Portsmouth,Virginia,school_close,2020/3/13,2021/4/12
+51740,Portsmouth,Virginia,college_close,2020/3/16,2020/8/24
+51740,Portsmouth,Virginia,religion_close,2020/3/14,2020/5/13
+51740,Portsmouth,Virginia,mask_mandate,2020/5/29,2021/5/28
+51750,Radford,Virginia,school_close,2020/3/13,2021/8/16
+51750,Radford,Virginia,college_close,2020/3/23,2020/7/27
+51750,Radford,Virginia,lockdown,2020/3/30,2020/6/10
+51750,Radford,Virginia,mask_mandate,2020/7/30,2022/3/23
+51760,Richmond City,Virginia,business_close,2020/3/16,2020/6/1
+51760,Richmond City,Virginia,school_close,2020/3/16,2021/9/8
+51760,Richmond City,Virginia,college_close,2020/3/18,2021/3/4
+51760,Richmond City,Virginia,business_close,2020/3/31,2020/6/1
+51760,Richmond City,Virginia,mask_mandate,2020/5/29,2022/3/1
+51770,Roanoke City,Virginia,school_close,2020/3/13,2020/11/4
+51770,Roanoke City,Virginia,school_close,2020/3/13,2021/1/25
+51770,Roanoke City,Virginia,college_close,2020/3/13,2020/6/30
+51770,Roanoke City,Virginia,religion_close,2020/3/14,2020/5/17
+51770,Roanoke City,Virginia,mask_mandate,2021/8/6,2022/2/28
+51775,Salem,Virginia,business_close,2020/3/24,2020/5/14
+51775,Salem,Virginia,school_close,2020/3/13,2020/8/31
+51775,Salem,Virginia,college_close,2020/3/13,2020/9/14
+51775,Salem,Virginia,religion_close,2020/3/13,2020/8/23
+51775,Salem,Virginia,lockdown,2020/3/30,2020/6/10
+51775,Salem,Virginia,mask_mandate,2020/5/29,2021/5/28
+51790,Staunton,Virginia,business_close,2020/3/24,2020/7/10
+51790,Staunton,Virginia,school_close,2020/3/23,2021/1/19
+51790,Staunton,Virginia,college_close,2020/3/13,2021/8/30
+51790,Staunton,Virginia,lockdown,2020/3/30,2020/6/10
+51790,Staunton,Virginia,mask_mandate,2021/8/10,2022/2/22
+51790,Staunton,Virginia,mask_mandate,2020/5/29,2022/3/8
+51800,Suffolk,Virginia,business_close,2020/3/23,2020/5/14
+51800,Suffolk,Virginia,business_close,2020/3/16,2020/6/15
+51800,Suffolk,Virginia,school_close,2020/3/16,2021/3/15
+51800,Suffolk,Virginia,mask_mandate,2020/5/29,2021/5/28
+51800,Suffolk,Virginia,mask_mandate,2021/9/7,2022/3/28
+51810,Virginia Beach,Virginia,business_close,2020/3/24,2020/5/14
+51810,Virginia Beach,Virginia,school_close,2020/3/16,2020/11/12
+51810,Virginia Beach,Virginia,college_close,2020/3/16,2020/9/8
+51810,Virginia Beach,Virginia,religion_close,2020/3/13,2020/5/16
+51810,Virginia Beach,Virginia,mask_mandate,2020/5/29,2021/5/28
+51810,Virginia Beach,Virginia,mask_mandate,2021/8/12,2022/1/24
+51820,Waynesboro,Virginia,business_close,2020/3/12,2020/5/11
+51820,Waynesboro,Virginia,school_close,2020/3/13,2020/8/31
+51820,Waynesboro,Virginia,religion_close,2020/5/25,2021/5/11
+51820,Waynesboro,Virginia,lockdown,2020/3/30,2020/5/11
+51820,Waynesboro,Virginia,mask_mandate,2020/5/29,2021/5/28
+51830,Williamsburg,Virginia,business_close,2020/3/23,2020/5/14
+51830,Williamsburg,Virginia,school_close,2020/3/16,2020/9/8
+51830,Williamsburg,Virginia,school_close,2020/12/3,2021/1/25
+51830,Williamsburg,Virginia,college_close,2020/3/16,2021/7/16
+51830,Williamsburg,Virginia,mask_mandate,2020/5/29,2021/5/28
+51840,Winchester,Virginia,business_close,2020/3/17,2020/9/8
+51840,Winchester,Virginia,school_close,2020/3/16,2021/8/9
+51840,Winchester,Virginia,college_close,2020/3/16,2020/8/24
+51840,Winchester,Virginia,lockdown,2020/3/30,2020/6/10
+51840,Winchester,Virginia,mask_mandate,2020/5/29,2021/5/28
