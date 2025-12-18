@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+
 sns.set()
 import torch
 import torch.nn as nn
@@ -34,6 +35,7 @@ def learn_mine(batch, mine_net, mine_net_optim, ma_et, ma_rate=0.01):
     mine_net_optim.step()
     return mi_lb, ma_et
 
+
 def sample_batch(data, batch_size=100, sample_mode='joint'):
     if sample_mode == 'joint':
         index = np.random.choice(range(data.shape[0]), size=batch_size, replace=False)
@@ -41,26 +43,29 @@ def sample_batch(data, batch_size=100, sample_mode='joint'):
     else:
         joint_index = np.random.choice(range(data.shape[0]), size=batch_size, replace=False)
         marginal_index = np.random.choice(range(data.shape[0]), size=batch_size, replace=False)
-        batch = np.concatenate([data[joint_index][:,0].reshape(-1,1),
-                                         data[marginal_index][:,1].reshape(-1,1)],
-                                       axis=1)
+        batch = np.concatenate([data[joint_index][:, 0].reshape(-1, 1),
+                                data[marginal_index][:, 1].reshape(-1, 1)],
+                               axis=1)
     return batch
 
-def train(data, mine_net,mine_net_optim, batch_size=100, iter_num=int(5e+3), log_freq=int(1e+1)):
+
+def train(data, mine_net, mine_net_optim, batch_size=100, iter_num=int(5e+3), log_freq=int(1e+1)):
     # data is x or y
     result = list()
     ma_et = 1.
     for i in range(iter_num):
-        batch = sample_batch(data,batch_size=batch_size)\
-        , sample_batch(data,batch_size=batch_size,sample_mode='marginal')
+        batch = sample_batch(data, batch_size=batch_size) \
+            , sample_batch(data, batch_size=batch_size, sample_mode='marginal')
         mi_lb, ma_et = learn_mine(batch, mine_net, mine_net_optim, ma_et)
         result.append(mi_lb.detach().cpu().numpy())
-        if (i+1)%(log_freq)==0:
+        if (i + 1) % (log_freq) == 0:
             print(result[-1])
     return result
 
+
 def ma(a, window_size=100):
-    return [np.mean(a[i:i+window_size]) for i in range(0,len(a)-window_size)]
+    return [np.mean(a[i:i + window_size]) for i in range(0, len(a) - window_size)]
+
 
 class Mine(nn.Module):
     def __init__(self, input_size=2, hidden_size=100):
@@ -90,21 +95,21 @@ if __name__ == '__main__':
                                       cov=[[1, 0.8], [0.8, 1]],
                                       size=300)
 
-    joint_data = sample_batch(y,batch_size=100,sample_mode='joint')
-    marginal_data = sample_batch(y,batch_size=100,sample_mode='marginal')
+    joint_data = sample_batch(y, batch_size=100, sample_mode='joint')
+    marginal_data = sample_batch(y, batch_size=100, sample_mode='marginal')
 
     mine_net_indep = Mine()
     mine_net_optim_indep = optim.Adam(mine_net_indep.parameters(), lr=1e-3)
-    result_indep = train(x,mine_net_indep,mine_net_optim_indep)
+    result_indep = train(x, mine_net_indep, mine_net_optim_indep)
 
     result_indep_ma = ma(result_indep)
     print(result_indep_ma[-1])
-    plt.plot(range(len(result_indep_ma)),result_indep_ma)
+    plt.plot(range(len(result_indep_ma)), result_indep_ma)
 
     mine_net_cor = Mine()
     mine_net_optim_cor = optim.Adam(mine_net_cor.parameters(), lr=1e-3)
-    result_cor = train(y,mine_net_cor,mine_net_optim_cor)
+    result_cor = train(y, mine_net_cor, mine_net_optim_cor)
 
     result_cor_ma = ma(result_cor)
     print(result_cor_ma[-1])
-    plt.plot(range(len(result_cor_ma)),result_cor_ma)
+    plt.plot(range(len(result_cor_ma)), result_cor_ma)

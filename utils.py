@@ -53,6 +53,7 @@ def edge_index_to_adjacency_matrix(edge_index, num_nodes):
         adjacency_matrix[node2, node1] = 1  # Assuming undirected graph
     return adjacency_matrix
 
+
 def load_data(path, name='BlogCatalog', exp_id='0', original_X=False, extra_str=""):
     data = sio.loadmat(path + name + extra_str + '/' + 'FlickrGraphDVAE' + exp_id + '.mat')
     A = data['Network']  # csr matrix
@@ -66,20 +67,21 @@ def load_data(path, name='BlogCatalog', exp_id='0', original_X=False, extra_str=
         X = data['X_100']
     else:
         X = data['Attributes']
-    Y = data['Label'] # 'Y_actual' for blogcatalog and flickr, 'Label' for synthetic
+    Y = data['Label']  # 'Y_actual' for blogcatalog and flickr, 'Label' for synthetic
     Y1 = data['Y1']
     Y0 = data['Y0']
     T = data['T']
 
     return X, A, T, Y, Y1, Y0
 
+
 def load_real_data():
     temp = pd.read_csv('2020-04-15-df-cases.csv')
-    T = temp.iloc[:,-1].values
+    T = temp.iloc[:, -1].values
 
-    Y = temp['Cases']/temp['Population']
+    Y = temp['Cases'] / temp['Population']
     Y = Y.values
-    temp = temp.iloc[:,:-2]
+    temp = temp.iloc[:, :-2]
     X = temp.values
 
     A = pd.read_csv('real_data/counties_adj_VA.csv')
@@ -90,8 +92,9 @@ def load_real_data():
         # If the graph is undirected, also set the opposite direction
         adj_matrix.at[row['fipsneighbor'], row['fipscounty']] = 1
     A = csc_matrix(adj_matrix.values)
-    X = X[:,1:]
+    X = X[:, 1:]
     return X, A, T, Y
+
 
 def sparse_mx_to_torch_sparse_tensor(sparse_mx, cuda=False):
     """Convert a scipy sparse matrix to a torch sparse tensor."""

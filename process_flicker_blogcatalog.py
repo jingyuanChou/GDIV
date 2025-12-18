@@ -8,8 +8,8 @@ font = {'weight': 'bold',
         'size': 14}
 
 rc('font', **font)
-path = './datasets/'
-name = 'BlogCatalog1' #  BlogCatalog1
+path = 'datasets/'
+name = 'BlogCatalog1'  # BlogCatalog1
 data = sio.loadmat(path + name + '/{}.mat'.format(name))
 data.keys()
 X = data['X_100']
@@ -66,7 +66,8 @@ for exp_id in range(10):
         neighbor_sum = torch.stack(neighbor_sum_ls)
         neighbor_sum = torch.sum(neighbor_sum, dim=0)
 
-        T_i = (1 - lamd) * torch.matmul(torch.transpose(Theta_t_x, 1, 0), torch.transpose(X_i,1,0)) + (lamd) * neighbor_sum / num_neighbors + \
+        T_i = (1 - lamd) * torch.matmul(torch.transpose(Theta_t_x, 1, 0), torch.transpose(X_i, 1, 0)) + (
+            lamd) * neighbor_sum / num_neighbors + \
               torch.matmul(Theta_t_u_trans, U_i) + epsilon_t
 
         T_i = treatment_det_f(T_i)
@@ -84,18 +85,26 @@ for exp_id in range(10):
         epsilon_Y = np.random.normal(0, 0.1)
 
         if T_i > 0.5:
-            Y_i = 1 * torch.matmul(Theta_y_i_trans, torch.transpose(X_i,1,0)) + torch.matmul(Theta_0_i_trans, torch.transpose(X_i,1,0)) + beta * \
+            Y_i = 1 * torch.matmul(Theta_y_i_trans, torch.transpose(X_i, 1, 0)) + torch.matmul(Theta_0_i_trans,
+                                                                                               torch.transpose(X_i, 1,
+                                                                                                               0)) + beta * \
                   torch.matmul(Theta_u_trans, U_i) + epsilon_Y
             treatment_ls.append(1)
         else:
-            Y_i = 0 * torch.matmul(Theta_y_i_trans, torch.transpose(X_i,1,0)) + torch.matmul(Theta_0_i_trans, torch.transpose(X_i,1,0)) + beta * \
+            Y_i = 0 * torch.matmul(Theta_y_i_trans, torch.transpose(X_i, 1, 0)) + torch.matmul(Theta_0_i_trans,
+                                                                                               torch.transpose(X_i, 1,
+                                                                                                               0)) + beta * \
                   torch.matmul(Theta_u_trans, U_i) + epsilon_Y
             treatment_ls.append(0)
 
-        Y_i_0 = 0 * torch.matmul(Theta_y_i_trans, torch.transpose(X_i,1,0)) + torch.matmul(Theta_0_i_trans, torch.transpose(X_i,1,0)) + beta * \
-                  torch.matmul(Theta_u_trans, U_i) + epsilon_Y
-        Y_i_1 = 1 * torch.matmul(Theta_y_i_trans, torch.transpose(X_i,1,0)) + torch.matmul(Theta_0_i_trans, torch.transpose(X_i,1,0)) + beta * \
-                  torch.matmul(Theta_u_trans, U_i) + epsilon_Y
+        Y_i_0 = 0 * torch.matmul(Theta_y_i_trans, torch.transpose(X_i, 1, 0)) + torch.matmul(Theta_0_i_trans,
+                                                                                             torch.transpose(X_i, 1,
+                                                                                                             0)) + beta * \
+                torch.matmul(Theta_u_trans, U_i) + epsilon_Y
+        Y_i_1 = 1 * torch.matmul(Theta_y_i_trans, torch.transpose(X_i, 1, 0)) + torch.matmul(Theta_0_i_trans,
+                                                                                             torch.transpose(X_i, 1,
+                                                                                                             0)) + beta * \
+                torch.matmul(Theta_u_trans, U_i) + epsilon_Y
 
         Y_0.append(Y_i_0.item())
         Y_1.append(Y_i_1.item())
@@ -105,5 +114,6 @@ for exp_id in range(10):
 
     # save the data
     sio.savemat('./datasets/' + name + 'GraphDVAE' + '/' + name + str(exp_id) + '.mat', {
-        'X_100': data['X_100'], 'T': treatment_ls, 'Y1': Y_1, 'Y0': Y_0,'Y_actual': Y_ls ,'Attributes': data['Attributes'], 'Label': data['Label'],
+        'X_100': data['X_100'], 'T': treatment_ls, 'Y1': Y_1, 'Y0': Y_0, 'Y_actual': Y_ls,
+        'Attributes': data['Attributes'], 'Label': data['Label'],
         'Network': data['Network']})

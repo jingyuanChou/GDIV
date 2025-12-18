@@ -5,10 +5,11 @@ import networkx as nx
 import scipy.io as sio
 from scipy.sparse import csc_matrix
 
+from process_flicker_blogcatalog import dim_x
+
 
 def generate_data(dim_u, continuous_x, categorical_x, num_categories,
                   num_samples, scaling_factor, prob, lamd, beta):
-
     for exp_id in range(10):
         # Size of the identity matrix
         dim_u = dim_u
@@ -43,7 +44,6 @@ def generate_data(dim_u, continuous_x, categorical_x, num_categories,
 
         # Combine continuous features with one-hot encoded categorical features
         Transformed_X = np.hstack((X_continuous, X_categorical_one_hot))
-
 
         mean = 0  # Mean (mu)
         std_dev = 1  # Standard deviation (sigma)
@@ -91,9 +91,10 @@ def generate_data(dim_u, continuous_x, categorical_x, num_categories,
                 temp = torch.matmul(Theta_t_x_trans, X_neighbor)
                 neighbor_sum_ls.append(temp)
             neighbor_sum = torch.stack(neighbor_sum_ls)
-            neighbor_sum = torch.sum(neighbor_sum, dim = 0)
+            neighbor_sum = torch.sum(neighbor_sum, dim=0)
 
-            T_i = (1 - lamd) * torch.matmul(torch.transpose(Theta_t_x, 1, 0), X_i) + (lamd) * neighbor_sum / num_neighbors + \
+            T_i = (1 - lamd) * torch.matmul(torch.transpose(Theta_t_x, 1, 0), X_i) + (
+                lamd) * neighbor_sum / num_neighbors + \
                   torch.matmul(Theta_t_u_trans, U_i) + epsilon_t
 
             T_i = treatment_det_f(T_i)
@@ -124,7 +125,6 @@ def generate_data(dim_u, continuous_x, categorical_x, num_categories,
             Y_i_1 = 1 * torch.matmul(Theta_y_i_trans, X_i) + torch.matmul(Theta_0_i_trans, X_i) + beta * \
                     torch.matmul(Theta_u_trans, U_i) + epsilon_Y
 
-
             Y_0.append(Y_i_0.item())
             Y_1.append(Y_i_1.item())
 
@@ -134,7 +134,8 @@ def generate_data(dim_u, continuous_x, categorical_x, num_categories,
         Transformed_X = Transformed_X.detach().numpy()
 
         sio.savemat('./datasets/' + 'synthetic_beta_0' + '/' + 'synthetic_beta_0_GraphDVAE' + str(exp_id) + '.mat', {
-            'X_100': Transformed_X, 'T': np.array(treatment_ls), 'Y1': np.array(Y_1), 'Y0': np.array(Y_0), 'Label': Y_ls,
+            'X_100': Transformed_X, 'T': np.array(treatment_ls), 'Y1': np.array(Y_1), 'Y0': np.array(Y_0),
+            'Label': Y_ls,
             'Network': graph})
     return treatment_ls, Transformed_X, Y_ls, G, Y_1, Y_0
 

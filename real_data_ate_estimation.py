@@ -11,6 +11,7 @@ from utils import normalize, edge_index_to_adjacency_matrix, mutual_information_
     sparse_mx_to_torch_sparse_tensor, load_real_data
 from models import GraphDVAE, MLP, output_MLP
 import tqdm
+
 # Training settings
 parser = argparse.ArgumentParser()
 parser.add_argument('--nocuda', type=int, default=0, help='Disables CUDA training.')
@@ -71,9 +72,8 @@ if __name__ == '__main__':
         X = normalize(X)  # row-normalize
         # A = utils.normalize(A+sp.eye(n))
 
-        # X = X.todense()
+        # X = X.dense()
         X = Tensor(X)
-
 
         Y = Tensor(np.squeeze(Y))
         T = LongTensor(np.squeeze(T))
@@ -234,16 +234,12 @@ if __name__ == '__main__':
         z_c_test = z_c[idx_test]
         z_r_test = z_r[idx_test]
 
-
-
         zero = torch.zeros(size=(t_pred_f.size()))
         one = torch.ones(size=(t_pred_f.size()))
         two = torch.full(t_pred_f.size(), 2).float()
         three = torch.full(t_pred_f.size(), 3).float()
         four = torch.full(t_pred_f.size(), 4).float()
         five = torch.full(t_pred_f.size(), 5).float()
-
-
 
         factual_outcome_0 = best_model(zero, z_c_test, z_r_test)
         factual_outcome_1 = best_model(one, z_c_test, z_r_test)
@@ -264,14 +260,8 @@ if __name__ == '__main__':
         ATE_0_4_ls.append(ATE_0_4.item())
         ATE_0_5_ls.append(ATE_0_5.item())
 
-    print('mean of ATE_0_1 is '+ str(np.mean(ATE_0_1_ls)), 'std of ATE_0_1 is '+ str(np.std(ATE_0_1_ls).item()))
-    print('mean of ATE_0_2 is '+ str(np.mean(ATE_0_2_ls)), 'std of ATE_0_2 is '+ str(np.std(ATE_0_2_ls).item()))
-    print('mean of ATE_0_3 is '+ str(np.mean(ATE_0_3_ls)), 'std of ATE_0_3 is '+ str(np.std(ATE_0_3_ls).item()))
-    print('mean of ATE_0_4 is '+ str(np.mean(ATE_0_4_ls)), 'std of ATE_0_4 is '+ str(np.std(ATE_0_4_ls).item()))
-    print('mean of ATE_0_5 is '+ str(np.mean(ATE_0_5_ls)), 'std of ATE_0_5 is '+ str(np.std(ATE_0_5_ls).item()))
-
-
-
-
-
-
+    print('mean of ATE_0_1 is ' + str(np.mean(ATE_0_1_ls)), 'std of ATE_0_1 is ' + str(np.std(ATE_0_1_ls).item()))
+    print('mean of ATE_0_2 is ' + str(np.mean(ATE_0_2_ls)), 'std of ATE_0_2 is ' + str(np.std(ATE_0_2_ls).item()))
+    print('mean of ATE_0_3 is ' + str(np.mean(ATE_0_3_ls)), 'std of ATE_0_3 is ' + str(np.std(ATE_0_3_ls).item()))
+    print('mean of ATE_0_4 is ' + str(np.mean(ATE_0_4_ls)), 'std of ATE_0_4 is ' + str(np.std(ATE_0_4_ls).item()))
+    print('mean of ATE_0_5 is ' + str(np.mean(ATE_0_5_ls)), 'std of ATE_0_5 is ' + str(np.std(ATE_0_5_ls).item()))

@@ -1,164 +1,205 @@
+import numpy as np
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import torch
-import torch_geometric.nn as pyg_nn
-from utils import mutual_information_loss
-import math
-
-import torch
-
-from torch.nn.parameter import Parameter
-from torch.nn.modules.module import Module
 
 
-class output_MLP(nn.Module):
-    def __init__(self, input_size, hidden_size, output_size):
-        super(output_MLP, self).__init__()
-        self.treatment_trans = nn.Linear(input_size, hidden_size)
-        self.zc = nn.Linear(hidden_size, hidden_size)  # First layer
-        self.zr = nn.Linear(hidden_size, hidden_size)  # Output layer
-        self.out1 = nn.Linear(hidden_size * 3, hidden_size)  # Output layer
-        self.out2 = nn.Linear(hidden_size, output_size)  # Output layer
-
-    def forward(self, treatment, z_c, z_r):
-        t_rep = self.treatment_trans(treatment)
-        z_c_rep = self.zc(z_c)
-        z_r_rep = self.zr(z_r)
-        concatenated = torch.cat((t_rep, z_r_rep, z_c_rep), dim=1)
-        x = F.relu(self.out1(concatenated))  # Activation function after first layer
-        x = self.out2(x)  # Output layer
-        return x
+# -------------------------
+# Utils / Layers
+# -------------------------
+def glorot_init(input_dim: int, output_dim: int) -> nn.Parameter:
+    init_range = np.sqrt(6.0 / (input_dim + output_dim))
+    w = torch.empty(input_dim, output_dim).uniform_(-init_range, init_range)
+    return nn.Parameter(w)
 
 
-class MLP(nn.Module):
-    def __init__(self, input_size, hidden_size, output_size):
-        super(MLP, self).__init__()
-        self.fc1 = nn.Linear(input_size, hidden_size)  # First layer
-        self.fc2 = nn.Linear(hidden_size, output_size)  # Output layer
-
-    def forward(self, x):
-        x = F.relu(self.fc1(x))  # Activation function after first layer
-        x = self.fc2(x)  # Output layer
-        return x
-
-
-class MINE(nn.Module):
-    def __init__(self, input_dim, hidden_dim):
-        super(MINE, self).__init__()
-        self.fc1 = nn.Linear(input_dim * 2, hidden_dim)
-        self.fc2 = nn.Linear(hidden_dim, 1)
-        self.activation = nn.ReLU()
-
-    def forward(self, z1, z2):
-        combined = torch.cat([z1, z2], dim=1)
-        x = self.activation(self.fc1(combined))
-        return self.fc2(x)
-
-
-class InnerProductDecoder(nn.Module):
-    """Decoder for using inner product for prediction."""
-
-    def __init__(self, act=torch.sigmoid):
-        super(InnerProductDecoder, self).__init__()
+class GraphConvolutionSparse(nn.Module):
+    """
+    A simple GCN layer that works with a torch.sparse adjacency matrix A (NxN).
+    x: [N, Fin]
+    A: torch.sparse.FloatTensor [N, N]
+    output: [N, Fout]
+    """
+    def __init__(self, input_dim: int, output_dim: int, dropout: float = 0.0, act=F.relu):
+        super().__init__()
+        self.weight = glorot_init(input_dim, output_dim)
+        self.dropout = dropout
         self.act = act
 
-    def forward(self, z):
-        adj = self.act(torch.mm(z, z.t()))
-        return adj
+    def forward(self, x: torch.Tensor, adj: torch.Tensor) -> torch.Tensor:
+        x = F.dropout(x, self.dropout, training=self.training)          # [N, Fin]
+        x = torch.mm(x, self.weight)                                    # [N, Fout]
+        x = torch.sparse.mm(adj, x)                                     # [N, Fout]
+        return self.act(x)
 
 
-class GCNEncoder(nn.Module):
-    def __init__(self, input_dim, hidden_dim, num_layers=2, activation=nn.ReLU):
-        super(GCNEncoder, self).__init__()
-        self.convs = nn.ModuleList()
-        self.activations = nn.ModuleList()
+class InnerProductDecoderLogits(nn.Module):
+    """
+    Returns logits (NOT sigmoid) so you can use BCEWithLogitsLoss.
+    z: [N, d]
+    out: [N, N] logits
+    """
+    def __init__(self, dropout: float = 0.0):
+        super().__init__()
+        self.dropout = dropout
 
-        # Input layer
-        self.convs.append(GraphConvolution(input_dim, hidden_dim))
-        self.activations.append(activation())
-
-        # Hidden layers
-        for _ in range(num_layers - 1):
-            self.convs.append(GraphConvolution(hidden_dim, hidden_dim))
-            self.activations.append(activation())
-
-    def forward(self, x, edge_index):
-        # x is the node features, edge_index is the graph structure (COO format)
-        for conv, activation in zip(self.convs, self.activations):
-            x = activation(conv(x, edge_index))
-        return x
+    def forward(self, z: torch.Tensor) -> torch.Tensor:
+        z = F.dropout(z, self.dropout, training=self.training)
+        return torch.mm(z, z.t())  # logits
 
 
-class GraphDVAE(nn.Module):
-    def __init__(self, input_dim, hidden_dim, num_class):
-        super(GraphDVAE, self).__init__()
+class Graphite(nn.Module):
+    """
+    GraphITE-style refinement layer that uses two dense support matrices recon_1, recon_2 (NxN).
+    x: [N, d]
+    recon_1/recon_2: [N, N] dense
+    """
+    def __init__(self, input_dim: int, output_dim: int, dropout: float = 0.0, act=F.relu):
+        super().__init__()
+        self.weight = glorot_init(input_dim, output_dim)
+        self.dropout = dropout
+        self.act = act
 
-        self.treatment_pred = MLP(hidden_dim * 2, hidden_dim, num_class)
+    def forward(self, x: torch.Tensor, recon_1: torch.Tensor, recon_2: torch.Tensor) -> torch.Tensor:
+        x = F.dropout(x, self.dropout, training=self.training)
+        x = torch.mm(x, self.weight)  # [N, out_dim]
+        # x <- R1 R1^T x + R2 R2^T x
+        x = torch.mm(recon_1, torch.mm(recon_1.t(), x)) + torch.mm(recon_2, torch.mm(recon_2.t(), x))
+        return self.act(x)
 
-        self.encoder_z_iv = GCNEncoder(input_dim, hidden_dim, num_layers=2, activation=nn.ReLU)
-        self.encoder_z_c = GCNEncoder(input_dim, hidden_dim, num_layers=3, activation=nn.Tanh)
-        self.encoder_z_r = GCNEncoder(input_dim, hidden_dim, num_layers=4, activation=nn.LeakyReLU)
 
-        self.mine_net = MINE(hidden_dim, hidden_dim)
+# -------------------------
+# GDIV
+# -------------------------
+class GDIV(nn.Module):
+    """
+    Drop-in GDIV that matches your main.py expectations.
 
-        self.decoder = InnerProductDecoder()
+    Forward returns:
+      z_iv, z_iv_rec, z_c, z_c_rec, z_r, z_r_rec, mi_total_loss, pred_T
 
-    def forward(self, X, edge_index):
-        # x is the node features, edge_index is the graph structure (COO format)
+    - A is assumed to be a torch.sparse adjacency matrix [N, N]
+    - recon outputs are logits [N, N] for BCEWithLogitsLoss
+    - pred_T is log-prob [N, num_classes] for NLLLoss
+    """
+    def __init__(
+        self,
+        input_dim: int,
+        hidden_dim: int,
+        num_classes: int,
+        dropout: float = 0.1,
+        use_graphite_refine: bool = True,
+    ):
+        super().__init__()
+        self.hidden_dim = hidden_dim
+        self.num_classes = num_classes
+        self.dropout = dropout
+        self.use_graphite_refine = use_graphite_refine
 
-        z_iv = self.encoder_z_iv(X, edge_index)
-        z_c = self.encoder_z_c(X, edge_index)
-        z_r = self.encoder_z_r(X, edge_index)
+        # Shared first layer (helps keep parameter count reasonable)
+        self.enc_shared = GraphConvolutionSparse(input_dim, hidden_dim, dropout=dropout, act=F.relu)
 
-        mi_total_loss = mutual_information_loss(z_iv, z_c, self.mine_net).mean() + mutual_information_loss(z_iv, z_r,
-                                                                                                           self.mine_net).mean() + mutual_information_loss(
-            z_c, z_r, self.mine_net).mean()
+        # Three factor-specific heads
+        self.enc_iv = GraphConvolutionSparse(hidden_dim, hidden_dim, dropout=dropout, act=F.relu)
+        self.enc_c  = GraphConvolutionSparse(hidden_dim, hidden_dim, dropout=dropout, act=F.relu)
+        self.enc_r  = GraphConvolutionSparse(hidden_dim, hidden_dim, dropout=dropout, act=F.relu)
 
-        # reconstruct the original graph structure
-        z_iv_rec = self.decoder(z_iv)
-        z_c_rec = self.decoder(z_c)
-        z_r_rec = self.decoder(z_r)
+        # Decoders for adjacency reconstruction (logits)
+        self.dec_iv = InnerProductDecoderLogits(dropout=dropout)
+        self.dec_c  = InnerProductDecoderLogits(dropout=dropout)
+        self.dec_r  = InnerProductDecoderLogits(dropout=dropout)
 
-        concatnated = torch.cat((z_iv, z_c), dim=1)
-        pred_T = F.log_softmax(self.treatment_pred(concatnated), dim=1)
+        # Optional GraphITE refinement modules (operate on dense NxN supports)
+        # They map hidden_dim -> hidden_dim
+        self.graphite_iv = Graphite(hidden_dim, hidden_dim, dropout=dropout, act=F.relu)
+        self.graphite_c  = Graphite(hidden_dim, hidden_dim, dropout=dropout, act=F.relu)
+        self.graphite_r  = Graphite(hidden_dim, hidden_dim, dropout=dropout, act=F.relu)
 
-        # use z_iv and z_c to predict T
+        # Treatment predictor uses concat([z_iv, z_c])
+        self.treatment_pred = nn.Linear(2 * hidden_dim, num_classes)
+
+    # These 3 methods are exactly what your predict() calls.
+    def encoder_z_iv(self, X: torch.Tensor, A: torch.Tensor) -> torch.Tensor:
+        h = self.enc_shared(X, A)
+        return self.enc_iv(h, A)
+
+    def encoder_z_c(self, X: torch.Tensor, A: torch.Tensor) -> torch.Tensor:
+        h = self.enc_shared(X, A)
+        return self.enc_c(h, A)
+
+    def encoder_z_r(self, X: torch.Tensor, A: torch.Tensor) -> torch.Tensor:
+        h = self.enc_shared(X, A)
+        return self.enc_r(h, A)
+
+    def forward(self, X: torch.Tensor, A: torch.Tensor):
+        # --- 1) Initial encodings
+        z_iv0 = self.encoder_z_iv(X, A)  # [N, d]
+        z_c0  = self.encoder_z_c(X, A)
+        z_r0  = self.encoder_z_r(X, A)
+
+        # --- 2) Initial reconstructions (logits)
+        z_iv_rec0 = self.dec_iv(z_iv0)   # [N, N] logits
+        z_c_rec0  = self.dec_c(z_c0)
+        z_r_rec0  = self.dec_r(z_r0)
+
+        # --- 3) Optional GraphITE refinement
+        if self.use_graphite_refine:
+            # GraphITE needs dense supports.
+            # If your graph is large, this can be expensive!
+            A_dense = A.to_dense()
+
+            # Use probabilities as supports (more stable than raw logits)
+            A_iv_sup = torch.sigmoid(z_iv_rec0)
+            A_c_sup  = torch.sigmoid(z_c_rec0)
+            A_r_sup  = torch.sigmoid(z_r_rec0)
+
+            # Refine each factor using (observed adjacency, its own reconstructed adjacency)
+            z_iv = self.graphite_iv(z_iv0, A_dense, A_iv_sup)
+            z_c  = self.graphite_c(z_c0,  A_dense, A_c_sup)
+            z_r  = self.graphite_r(z_r0,  A_dense, A_r_sup)
+
+            # Re-decode from refined embeddings (so your rec loss matches refined z)
+            z_iv_rec = self.dec_iv(z_iv)
+            z_c_rec  = self.dec_c(z_c)
+            z_r_rec  = self.dec_r(z_r)
+        else:
+            z_iv, z_c, z_r = z_iv0, z_c0, z_r0
+            z_iv_rec, z_c_rec, z_r_rec = z_iv_rec0, z_c_rec0, z_r_rec0
+
+        # --- 4) Treatment prediction (log-prob for NLLLoss)
+        concat = torch.cat([z_iv, z_c], dim=1)              # [N, 2d]
+        pred_T = F.log_softmax(self.treatment_pred(concat), dim=1)
+
+        # --- 5) MI / balancing loss placeholder (keep API compatible)
+        mi_total_loss = torch.tensor(0.0, device=X.device)
 
         return z_iv, z_iv_rec, z_c, z_c_rec, z_r, z_r_rec, mi_total_loss, pred_T
 
 
-
-class GraphConvolution(Module):
+# -------------------------
+# Stage-2 outcome head
+# -------------------------
+class Output_MLP(nn.Module):
     """
-    Simple GCN layer, similar to https://arxiv.org/abs/1609.02907
+    Your main.py calls: Output_MLP(input_dim, hidden_dim, output_dim)
+    where input_dim == t_pred.size(1) == 1 typically.
+
+    We assume z_c and z_r are both of dimension hidden_dim (same as encoder hidden_dim),
+    which matches your main.py usage.
     """
+    def __init__(self, t_dim: int, hidden_dim: int, output_dim: int, dropout: float = 0.1):
+        super().__init__()
+        self.dropout = dropout
+        in_dim = t_dim + 2 * hidden_dim
 
-    def __init__(self, in_features, out_features, bias=True):
-        super(GraphConvolution, self).__init__()
-        self.in_features = in_features
-        self.out_features = out_features
-        self.weight = Parameter(torch.FloatTensor(in_features, out_features))
-        if bias:
-            self.bias = Parameter(torch.FloatTensor(out_features))
-        else:
-            self.register_parameter('bias', None)
-        self.reset_parameters()
+        self.fc1 = nn.Linear(in_dim, hidden_dim)
+        self.fc2 = nn.Linear(hidden_dim, hidden_dim)
+        self.out = nn.Linear(hidden_dim, output_dim)
 
-    def reset_parameters(self):
-        stdv = 1. / math.sqrt(self.weight.size(1))
-        self.weight.data.uniform_(-stdv, stdv)
-        if self.bias is not None:
-            self.bias.data.uniform_(-stdv, stdv)
-
-    def forward(self, input, adj):
-        support = torch.mm(input, self.weight)
-        output = torch.spmm(adj, support)
-        if self.bias is not None:
-            return output + self.bias
-        else:
-            return output
-
-    def __repr__(self):
-        return self.__class__.__name__ + ' (' \
-               + str(self.in_features) + ' -> ' \
-               + str(self.out_features) + ')'
+    def forward(self, t_pred: torch.Tensor, z_c: torch.Tensor, z_r: torch.Tensor) -> torch.Tensor:
+        x = torch.cat([t_pred, z_c, z_r], dim=1)
+        x = F.relu(self.fc1(x))
+        x = F.dropout(x, self.dropout, training=self.training)
+        x = F.relu(self.fc2(x))
+        x = self.out(x)
+        return x
